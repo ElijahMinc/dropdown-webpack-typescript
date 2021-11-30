@@ -1,0 +1,37 @@
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+   entry: './src/index.ts',
+   mode: 'development',
+   output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'index.js'
+   },
+   devtool: 'inline-source-map',
+   resolve: {
+      extensions: [".js", ".ts"]
+    },
+   devServer: {
+      port: 3000,
+      open: true
+   },
+   module: {
+      rules: [
+         {
+           test: /\.css$/i,
+           use: ["style-loader", "css-loader"]
+         },
+         {
+            test: /\.ts?$/,
+            use: [ 'ts-loader'],
+            exclude: /node_modules/,
+          },
+       ],
+   },
+   plugins: [
+      new HtmlWebpackPlugin({
+         template:path.resolve(__dirname, './public/index.html'),
+         title: 'DropDown'  
+   })],
+}
