@@ -21,7 +21,6 @@ ul {
 }
 .dropdown {
   width: 300px;
-  /* position: relative; */
   z-index: 200;
 }
 .dropdown.show .dropdown-field {
@@ -35,13 +34,18 @@ ul {
 .dropdown__container {
   padding: 5px;
 }
-.dropdown__item {
-}
 .dropdown.show .dropdown-body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+.dropdown.show .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .dropdown-body {
   cursor: pointer;
@@ -92,12 +96,4 @@ ul {
 
 .dropdown-field__item.active {
   background-color: rgb(215, 254, 255);
-}
-.backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
 }

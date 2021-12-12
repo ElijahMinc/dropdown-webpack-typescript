@@ -36,9 +36,6 @@ interface DropDownConfigurationProps{
 }
 
 class DropDown<T extends IData> implements DropDownConfigurationProps{
-   // private render: () => void
-   // private setup: () => void
-
    constructor(
          public config: IDropDown<T>, 
          public name: string = config.name,
