@@ -1,6 +1,5 @@
-// @ts-nocheck
 import './style.css'
-import DropDown, { DropDownConfig, IData } from "./createConfig"
+import DropDown, { IData } from "./select-lib/createConfig"
 
 const data: IData[] = [
    {
@@ -22,11 +21,11 @@ new DropDown({
    placeholder: 'Select value',
    componentNameByID: '#dropdown1',
    data,
-}) as DropDownConfig
+})
 
-new DropDown({
-   name: 'DropDown',
-   placeholder: 'Select value',
-   componentNameByID: '#dropdown2',
-   data,
-}) as DropDownConfig
+// new DropDown({
+//    name: 'DropDown',
+//    placeholder: 'Select value',
+//    componentNameByID: '#dropdown2',
+//    data,
+// }) as DropDownConfig

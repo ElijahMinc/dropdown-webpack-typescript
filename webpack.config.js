@@ -24,7 +24,13 @@ module.exports = {
          },
          {
             test: /\.ts?$/,
-            use: [ 'ts-loader'],
+            use: {
+               loader: "babel-loader",
+               options: {
+               //   cacheDirectory: true, // Использование кэша для избежания рекомпиляции
+                 presets: ["@babel/preset-typescript"],
+               },
+            },
             exclude: /node_modules/,
           },
        ],

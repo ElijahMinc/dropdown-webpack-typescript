@@ -35,11 +35,11 @@ interface DropDownConfigurationProps{
    readonly $component: Element
 }
 
-class DropDown<T extends IData> implements DropDownConfigurationProps{
+class DropDown implements DropDownConfigurationProps{
    constructor(
-         public config: IDropDown<T>, 
+         public config: IDropDown<IData>, 
          public name: string = config.name,
-         public data: T[] = config.data,
+         public data: IData[] = config.data,
          public placeholder: string = config.placeholder,
          readonly componentNameByID = config.componentNameByID,
          readonly $component = document.querySelector(componentNameByID),
@@ -47,11 +47,12 @@ class DropDown<T extends IData> implements DropDownConfigurationProps{
          this.render()
          this.setup()
       }
-      private liItemTemplate({id, title}: T ) {
+      private liItemTemplate({id, title}: IData ) {
          return `<li class="dropdown-field__item" data-key="${id}-${title}">${title}</li>`
       }
       // <div class="backdrop" data-type="backdrop"></div>
       private template() {
+         console.log(this.placeholder)
             return `
             <div class="backdrop"></div>
             <div class="dropdown__container">
@@ -59,7 +60,7 @@ class DropDown<T extends IData> implements DropDownConfigurationProps{
                  <div class="dropdown-body__item" data-type="input">${this.placeholder}</div>
                  <i class="fas fa-sort-down dropdown-body__item dropdown-body__item-icon" data-type="icon"></i>
                  <ul class="dropdown__item dropdown-field" data-type="dropdown">
-                    ${this.data.map((currentData: T) => (
+                    ${this.data.map((currentData: IData) => (
                        this.liItemTemplate(currentData)
                     )).join(' ')}
                  </ul>

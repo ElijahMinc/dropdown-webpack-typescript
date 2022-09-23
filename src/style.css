@@ -29,7 +29,7 @@ ul {
   top: 120%;
 }
 .dropdown.show .dropdown-body__item-icon {
-  transform: rotate(-180deg);
+  transform: rotate(180deg);
 }
 .dropdown__container {
   padding: 5px;
@@ -69,7 +69,7 @@ ul {
   top: 40%;
   transform: translate(0, -40%);
   font-size: 25px;
-  transition: 0.3s;
+  transition: 0.2s ease-in-out;
 }
 .dropdown-field {
   transition: 0.1s ease;
